@@ -1,0 +1,9 @@
+name: mango_utility
+version: 1.0.0
+description: Wrapper for Mango Utility API
+repository: https://github.com/louisevanderlith/utility
+homepage: https://github.com/louisevanderlith/utility
+environment:
+  sdk: '>=2.0.0 < 3.0.0'
+dependencies:
+  mango_ui: '^1.0.3'
