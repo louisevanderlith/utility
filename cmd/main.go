@@ -19,7 +19,7 @@ func main() {
 	srvr := &http.Server{
 		ReadTimeout:  time.Second * 15,
 		WriteTimeout: time.Second * 15,
-		Addr:         ":8088",
+		Addr:         ":8105",
 		Handler:      handles.SetupRoutes(*issuer, *audience),
 	}
 

@@ -1,9 +1,17 @@
 class Service {
-  final String url;
+  final Duration duration;
+  final DateTime starttime;
+  final String location;
+  final String description;
 
-  Service(this.url);
+  Service(this.duration, this.starttime, this.location, this.description);
 
   Map<String, dynamic> toJson() {
-    return {"Url": url};
+    return {
+      "Duration": duration,
+      "StartTime": starttime,
+      "Location": location,
+      "Description": description,
+    };
   }
 }

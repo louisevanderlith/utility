@@ -19,6 +19,6 @@ FROM scratch
 
 COPY --from=builder /box/utility .
 
-EXPOSE 8088
+EXPOSE 8105
 
 ENTRYPOINT [ "./utility" ]
