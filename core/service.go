@@ -1,9 +1,15 @@
 package core
 
-import "github.com/louisevanderlith/husk/validation"
+import (
+	"github.com/louisevanderlith/husk/validation"
+	"time"
+)
 
 type Service struct {
-	Url string `hsk:"size(256)"`
+	Duration    time.Duration
+	StartTime   time.Time
+	Location    string
+	Description string `hsk:"size(256)"`
 }
 
 func (o Service) Valid() error {
