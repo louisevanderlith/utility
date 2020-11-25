@@ -11,7 +11,7 @@ import (
 )
 
 func FetchService(web *http.Client, host string, k hsk.Key) (core.Service, error) {
-	url := fmt.Sprintf("%s/services/%s", host, k.String())
+	url := fmt.Sprintf("%s/info/%s", host, k.String())
 	resp, err := web.Get(url)
 
 	if err != nil {
@@ -33,7 +33,7 @@ func FetchService(web *http.Client, host string, k hsk.Key) (core.Service, error
 }
 
 func FetchAllServices(web *http.Client, host, pagesize string) (records.Page, error) {
-	url := fmt.Sprintf("%s/services/%s", host, pagesize)
+	url := fmt.Sprintf("%s/info/%s", host, pagesize)
 	resp, err := web.Get(url)
 
 	if err != nil {

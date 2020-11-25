@@ -10,8 +10,10 @@ import (
 func SetupRoutes(issuer, audience string) http.Handler {
 	r := mux.NewRouter()
 	mw := open.BearerMiddleware(audience, issuer)
+
 	r.Handle("/info/{key:[0-9]+\\x60[0-9]+}", mw.Handler(http.HandlerFunc(ViewService))).Methods(http.MethodGet)
 
+	r.Handle("/info", mw.Handler(http.HandlerFunc(GetServices)))
 	r.Handle("/info/{pagesize:[A-Z][0-9]+}", mw.Handler(http.HandlerFunc(SearchServices))).Methods(http.MethodGet)
 
 	r.Handle("/info", mw.Handler(http.HandlerFunc(CreateService))).Methods(http.MethodPost)
