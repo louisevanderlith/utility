@@ -7,7 +7,6 @@ import (
 
 type Service struct {
 	Duration    time.Duration
-	StartTime   time.Time
 	Location    string
 	Description string `hsk:"size(256)"`
 }
