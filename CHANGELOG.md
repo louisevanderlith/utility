@@ -1,5 +1,9 @@
 ## Mango-Utility
 
+# 1.0.4
+
+* Removed StartTime field
+
 # 1.0.2
 
 * Version match, added fields for service
