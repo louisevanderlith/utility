@@ -1,16 +1,47 @@
 package core
 
 import (
+	"encoding/json"
+	"errors"
 	"github.com/louisevanderlith/husk/validation"
 	"time"
 )
 
 type Service struct {
-	Duration    time.Duration
+	Duration    Duration
 	Location    string
 	Description string `hsk:"size(256)"`
 }
 
 func (o Service) Valid() error {
 	return validation.Struct(o)
+}
+
+type Duration struct {
+	time.Duration
+}
+
+func (d Duration) MarshalJSON() ([]byte, error) {
+	return json.Marshal(d.String())
+}
+
+func (d *Duration) UnmarshalJSON(b []byte) error {
+	var v interface{}
+	if err := json.Unmarshal(b, &v); err != nil {
+		return err
+	}
+	switch value := v.(type) {
+	case float64:
+		d.Duration = time.Duration(value)
+		return nil
+	case string:
+		var err error
+		d.Duration, err = time.ParseDuration(value)
+		if err != nil {
+			return err
+		}
+		return nil
+	default:
+		return errors.New("invalid duration")
+	}
 }

@@ -1,5 +1,9 @@
 ## Mango-Utility
 
+# 1.0.5
+
+* Duration JSON updated
+
 # 1.0.4
 
 * Removed StartTime field

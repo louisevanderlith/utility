@@ -1,13 +1,15 @@
 class Service {
-  final Duration duration;
+  final int hours;
+  final int minutes;
+  final int seconds;
   final String location;
   final String description;
 
-  Service(this.duration, this.location, this.description);
+  Service(this.location, this.description, this.hours, this.minutes, this.seconds);
 
   Map<String, dynamic> toJson() {
     return {
-      "Duration": duration,
+      "Duration": "${hours}h${minutes}m${seconds}s",
       "Location": location,
       "Description": description,
     };
